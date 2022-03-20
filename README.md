@@ -14,7 +14,7 @@
 
 - 删除了 Redirect
 
-  - 使用 Navigator 替代 Redirect, Navigator 必传属性 to, 跳转的地址, replace 表示替换还是压路由(push)
+  - 使用 Navigate  替代 Redirect, Navigate  必传属性 to, 跳转的地址, replace 表示替换还是压路由(push)
 
     ```react
     <Routes>
@@ -37,4 +37,30 @@
     </NavLink>
     ```
 
+- 新增 useRoutes 来映射路由
+
+  - 可以将路由表抽离成单独的文件, 更加方便管理
+
+    ```react
+    import { Navigate } from "react-router-dom";
+    import Home from "../pages/Home";
+    import About from "../pages/About";
+    export default [
+        {
+            path: "/about",
+            element: <About />
+        },
+        {
+            path: "/home",
+            element: <Home />
+        },
+        {
+            path: "*",
+            element: <Navigate to="/home" />
+        }
+    ]
+    
+    // 此时的 element 就是 Routes 内部嵌套 Route
+    const element = useRoutes(routes);
+    ```
   
