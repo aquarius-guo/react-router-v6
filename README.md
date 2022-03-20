@@ -23,3 +23,18 @@
         <Route path='*' element={<Navigate to="about" replace={true}/>} />
     </Routes>
     ```
+- 删除 activeClassName 属性(修改 NavLink 高亮时的 class 名)
+
+  - 使用 className={函数} 替代: 该函数首次渲染执行一次, 之后每次路由发生变化都会执行一次(不管是不是当前的 NavLink)
+
+  - 该函数接收一个参数, 参数是一个对象, 对象有 isActive 属性, 当前路由是对应的 to 则属性值为 true
+
+  - 根据函数的返回值去替换 className 名
+
+    ```react
+    <NavLink className={({isActived}) => isActive ? "aquarius" : "no-aquarius" to="/about">
+      about
+    </NavLink>
+    ```
+
+  
