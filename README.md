@@ -229,6 +229,18 @@
     // 返回 boolean 值
     useInRouterContext();
     ```
+- 新增 useResolvedPath 方法
+
+  - 用于解析 url, 该 url 不一定存在路由中
+
+    ```react
+    const {pathname, search, hash} = useResolvedPath("/user/123?id=001&name=zhangsan")
+    ```
+
+    
+
+
+
 
   
     
