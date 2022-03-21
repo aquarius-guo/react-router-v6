@@ -93,5 +93,35 @@
         <Outlet />
     </div>
     ```
+- 新增 useParams 方法
+
+  - 之前函数组件无法获取 Params 参数, 现在使用 useParams 方法获取 Params 参数
+
+    ```react
+    // 传参方式
+    <NavLink to={`detail/${message.id}/${message.title}/${message.content}`}>detail</NavLink>
+    
+    // useRoutes 获取 Params 参数写法
+    {
+    	path: "message",
+    	element: <Message />,
+    	children: [
+    		{
+    			path: "detail/:id/:title/:content",
+    			element: <Detail />
+    		}
+    	]
+    }
+    
+    // 使用 useParams 方法获取 Params 参数
+    const params = useParams();
+    const { id, title, content } = params;
+    // 或者
+    const x = useMatch("/home/message/detail/:id/:title/:content");
+    const { id, title, content } = x.params
+    ```
+
+    
+
 
   
