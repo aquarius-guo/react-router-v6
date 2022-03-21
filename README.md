@@ -188,6 +188,42 @@
     const { state: {id, title, content} } = useLocation();
     console.log(id, title, content);
     ```
+- 新增 useNavigate 方法
+
+  - 之前使用 this.props.history 进行跳转
+
+    ```react
+    // 传参方式, 可以传入 -1, 1 前进与后退, 并且目前只能传 state 值
+    <button onClick={() => {
+    	navigate("detail", {
+    		replace: true,
+    		state: {
+                id: message.id,
+                title: message.title,
+                content: message.content
+    		}
+    	})
+    }}>跳转</button>
+    
+    // useRoutes 
+    {
+    	path: "message",
+    	element: <Message />,
+    	children: [
+    		{
+    			path: "detail",
+    			element: <Detail />
+    		}
+    	]
+    }
+    
+    // useLocation 方法获取
+    const { state: {id, title, content} } = useLocation();
+    console.log(id, title, content);
+    ```
+
+    
+
 
     
 
