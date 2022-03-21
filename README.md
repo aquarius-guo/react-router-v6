@@ -157,6 +157,42 @@
         state: "123=hellofuck"
     })}
     ```
+- 新增 useLocation 方法
+
+  - 之前 this.props.location.state
+
+    ```react
+    // 传参方式
+    <NavLink 
+    	to="detail" 
+    	state={{
+            id: message.id,
+            title: message.title,
+            content: message.content
+    	}}
+    >detail</NavLink>
+    
+    // useRoutes 
+    {
+    	path: "message",
+    	element: <Message />,
+    	children: [
+    		{
+    			path: "detail",
+    			element: <Detail />
+    		}
+    	]
+    }
+    
+    // useLocation 方法获取
+    const { state: {id, title, content} } = useLocation();
+    console.log(id, title, content);
+    ```
+
+    
+
+
+
 
     
 
