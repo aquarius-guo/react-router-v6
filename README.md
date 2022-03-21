@@ -87,7 +87,8 @@
     <div>
         Home
         // NavLink 的 to 属性有三种书写方式: ①: /news, 跳转到根路由, ②: ./news 在父路由下的子路由, ③: news 与 ② 相同
-        // 并且 NavLink 拥有 end 属性, 子路由渲染父路由不渲染
+        // 并且 NavLink 拥有 end 属性
+        // 子组件的 NavLink 的 className 拥有 active, 父组件的 NavLink 的 className 没有 active
         <NavLink to="news">home-news</NavLink>	
         <NavLink to="message">home-message</NavLink>
         <Outlet />
