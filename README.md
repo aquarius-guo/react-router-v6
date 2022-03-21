@@ -126,7 +126,7 @@
 
     ```react
     // 传参方式
-    <NavLink to={`detail`}>detail</NavLink>
+    <NavLink to={`detail?id=${message.id}&title=${message.title}&content=${message.content}`}>detail</NavLink>
     
     // useRoutes 
     {
