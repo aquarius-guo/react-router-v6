@@ -120,6 +120,46 @@
     const x = useMatch("/home/message/detail/:id/:title/:content");
     const { id, title, content } = x.params
     ```
+- 新增 useSearchParams 方法
+
+  - 之前使用 this.props.location 获取 search 参数
+
+    ```react
+    // 传参方式
+    <NavLink to={`detail`}>detail</NavLink>
+    
+    // useRoutes 
+    {
+    	path: "message",
+    	element: <Message />,
+    	children: [
+    		{
+    			path: "detail",
+    			element: <Detail />
+    		}
+    	]
+    }
+    
+    // 使用 useSearchParams 方法获取 Search 参数
+    const [search, setSearch] = useSearchParams();
+    const id = search.get("id");
+    const title = search.get("title");
+    const content = search.get("content");
+    // 或者
+    const x = useLocation();
+    const {search, state} = x;
+    
+    // useSearchParams 返回的数据第二个参数使用方法
+    // setSearch 可以传入 search 字符串, 也可以传入对象形式 {id: "003", title: "标题2", content: "hello" }
+    // 并且该函数还有第二个参数, 参数是个对象, 属性 replace 是否替换, state 数据传入更新后的 useLocation 的 state 中
+    <button onClick={() => setSearch("id=002&title=标题&content=helloworld", {
+        replace: true,
+        state: "123=hellofuck"
+    })}
+    ```
+
+    
+
 
     
 
