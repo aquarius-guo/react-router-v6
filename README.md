@@ -63,4 +63,35 @@
     // 此时的 element 就是 Routes 内部嵌套 Route
     const element = useRoutes(routes);
     ```
+- 新增 Outlet 与 useRoutes 配合使用
+
+  - 在之前没有 useRoutes 时, 路由需要一步步配置, 当有 useRoutes 时, 修改了子路由的渲染方式
+
+    ```react
+    {
+        path: "/home",
+        element: <Home />,
+        children: [
+          {
+            path: "/home/news",	// 可以直接写成 news, 但是不能写成 /news, 因为子路由必须在父路由后面
+                element: <News />
+            },
+            {
+                path: "/home/message",
+                element: <Message />
+            }
+        ]
+    }
+    
+    // Home 组件的子组件渲染位置由 Outlet 代替
+    <div>
+        Home
+        // NavLink 的 to 属性有三种书写方式: ①: /news, 跳转到根路由, ②: ./news 在父路由下的子路由, ③: news 与 ② 相同
+        // 并且 NavLink 拥有 end 属性, 子路由渲染父路由不渲染
+        <NavLink to="news">home-news</NavLink>	
+        <NavLink to="message">home-message</NavLink>
+        <Outlet />
+    </div>
+    ```
+
   
