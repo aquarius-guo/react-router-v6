@@ -221,7 +221,16 @@
     const { state: {id, title, content} } = useLocation();
     console.log(id, title, content);
     ```
+- 新增 useInRouterContext 方法
 
+  - 判断当前组件是否在路由上下文环境中, 只要是被 BrowserRouter 包裹的组件(包含着子组件)
+
+    ```react
+    // 返回 boolean 值
+    useInRouterContext();
+    ```
+
+  
     
 
 
